@@ -4,8 +4,24 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
+	<h1><a href="{{url_for('index')}}">Awesome blog</a></h1>
+	<h3>
+		<a href="{{url_for('index')}}">Index</a>
+		<a href="{{url_for('create')}}">Create</a>
+		<a href="{{url_for('adminLoggingPage', error=None)}}">Admin</a>
+	</h3>
+	<hr />
 	<div class="container">
-{% block content %}{% endblock %}
+		{% with messages = get_flashed_messages() %}
+	  		{% if messages %}
+	    		<ul class=flashes>
+	    		{% for message in messages %}
+	      			<li>{{ message }}</li>
+				{% endfor %}
+	    		</ul>
+	  		{% endif %}
+		{% endwith %}
+		{% block content %}{% endblock %}
 	</div>
 </body>
 </html>

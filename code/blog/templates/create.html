@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Create a post{% endblock %}
+
+{% block content %}
+<h2>Create a post</h2>
+<form method="post" action="{{url_for('createPost')}}">
+    <label for="authorId">Select author: </label>
+    <select name="authorId">
+        {% for aut in authors %}
+        <option value="{{aut.id}}">{{aut.name}}</option>
+        {% endfor %}
+    </select><br />
+    <label for="categoryId">Select category: </label>
+    <select name="categoryId">
+        {% for cat in categories %}
+        <option value="{{cat.id}}">{{cat.name}}</option>
+        {% endfor %}
+    </select><br />
+    <label for="titleText">Title: </label>
+    <input type="text" name="titleText" /><br />
+    <label for="contentText">Post:</label><br />
+    <textarea name="contentText"></textarea><br />
+    <input type="submit" />
+</form>
+{% endblock %}

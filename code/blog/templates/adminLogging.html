@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin logging page{% endblock %}
+
+{% block content %}
+<h2>Admin logging</h2>
+
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}</p>
+{% endif %}
+
+{% if session['admin_logged_in'] == True %}
+<p>You are logged in. <a href="{{url_for('adminLogout')}}">Logout</a>.</p>
+{% else %}
+<form method="post" action="{{url_for('adminLogging')}}">
+    <label for="login">Login: </label>
+    <input type="text" name="login" /><br />
+
+    <label for="password">Password: </label>
+    <input type="password" name="password" /><br />
+
+    <input type="Submit" />
+</form>
+{% endif %}
+{% endblock %}
