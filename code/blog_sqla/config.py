@@ -1,5 +1,5 @@
 # Configuration values.
-DATABASE = 'high_scores.db'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///blog.db'
 DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME = 'admin'

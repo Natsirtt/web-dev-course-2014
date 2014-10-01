@@ -5,11 +5,6 @@
 </head>
 <body>
 	<div class="container">
-		<h1>High scores</h1>
-		<button type="button" class="btn btn-default navbar-btn">Log in</button>
-		{% for message in get_flashed_messages() %}
-		<div class="alert alert-info">{{ message }}</div>
-		{% endfor %}
 {% block content %}{% endblock %}
 	</div>
 </body>
